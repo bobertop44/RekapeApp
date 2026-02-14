@@ -1,1 +1,1 @@
-# curly-eureka
+# Rekape Launcher
