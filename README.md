@@ -1,31 +1,111 @@
-# Rekape Launcher
+# RekapeApp — Лаунчер для Winter Racing Game
 
-A simple and efficient launcher for an enhanced gaming experience by Rekape.
-
-Automatically detects installed games, sends verification codes, and provides a clean interface to launch your favorites with one click.
-
----
-
-## 🖥 System Requirements
-
-- **Operating System**: Windows 7 or later (Windows Vista is not supported)  
-- **Java**: Java 11 or higher (JRE or JDK)  
-- **PowerShell**: Built-in (Windows 7+) — must allow script execution
-
-> ✅ This launcher works offline. No internet required after setup!
-> 
-> ⚠️Many features will be unavailable in offline mode
+**RekapeApp** — это официальный лаунчер для игры **Winter Racing Game** (и будущих проектов студии ReKape).  
+Он обеспечивает управление версиями, автоматические обновления, доступ к бета-версиям, сохранение прогресса и интеграцию с экосистемой MewingID.
 
 ---
 
-## ⚠️ Important Setup Steps
-> You can skip this, but later you may have problems with registration/login to your account.
-### 🔐 Allow PowerShell Scripts to Run
-The first time you use the launcher, run this command in **PowerShell as Administrator**:
+## 📦 Технологии и зависимости
 
-```powershell
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+| Библиотека | Версия | Назначение |
+|------------|--------|------------|
+| **PyQt6** | ≥ 6.5.0 | Графический интерфейс (окна, кнопки, стили) |
+| **TinyDB** | ≥ 4.8.0 | Лёгкая NoSQL база данных для хранения пользователей, настроек и прогресса |
+| **Requests** | ≥ 2.31.0 | HTTP-запросы к серверу (загрузка JSON, обновлений) |
+
+---
+
+## ⚙️ Установка и запуск
+
+### 1. Клонирование репозитория
+```bash
+git clone https://github.com/ваш_аккаунт/rekapeapp.git
+cd rekapeapp
 ```
+
+### 2. Установка зависимостей
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Настройка
+- Создайте файл `.env` в корневой папке и добавьте:
+```env
+BOT_TOKEN=ваш_токен_telegram_бота
+API_BASE_URL=http://127.0.0.1:5000
+```
+
+### 4. Запуск
+```bash
+python main.py
+```
+
 ---
 
-## 🕹️Features
+## 📁 Структура проекта
+
+```
+rekapeapp/
+├── main.py               
+├── service/
+│   ├── check.py            # Проверка файлов и папок
+│   └── downloadgame.py     # Логика скачивания игры
+|   └── getactuallinks.py
+├── static/
+│   └── res/
+│       └── folderasset.svg # Иконка выбора папки
+```
+
+---
+
+## ⚠️ Важно: Логирование
+
+Приложение ведёт логирование в файл:  
+`Documents/Rekape/RekapeApp/cache/log.txt`
+
+Лог содержит:
+- Время события
+- Тип операции (загрузка, ошибка, авторизация)
+- Краткое описание действия
+
+**Ваши личные данные (пароли, токены) не логируются.**  
+Если вы хотите отключить логирование — закомментируйте вызовы `self.log()` в коде.
+
+---
+
+## 🤝 Сотрудничество
+
+Если вы разработчик, дизайнер или просто энтузиаст, мы рады вашей помощи!
+
+### Что можно улучшить:
+- Оптимизация кода и производительности
+- Дизайн интерфейса (стили, анимации)
+- Интеграция с новыми сервисами (Steam, Discord)
+- Тестирование и поиск багов
+- Создание новых фич (облачные сохранения, мультиплеер)
+
+### Как связаться:
+- ✉️ **Email:** bobertop44@gmail.com
+- 💬 **Telegram:** [@yarikpriz777](https://t.me/yarikpriz777)
+- 📢 **Канал:** [@ReKapeStudios01](https://t.me/ReKapeStudios01)
+
+> **Важно:** Если вы предлагаете изменения, пожалуйста, создайте **Pull Request** с описанием ваших правок.  
+> Для серьёзных изменений — обсудите их заранее в Telegram.
+
+---
+
+## 📄 Лицензия
+
+Проект распространяется под лицензией **MIT** — вы можете использовать, модифицировать и распространять код при условии указания авторства.
+
+---
+
+## 🙏 Благодарности
+
+Спасибо всем, кто тестирует RekapeApp и Winter Racing Game!  
+Особая благодарность разработчикам открытых библиотек, без которых этот проект был бы невозможен.
+
+---
+
+**Разработано с ❄️ в ReKape Studios**  
+© 2026 ReKape. Все права защищены.
