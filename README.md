@@ -107,5 +107,3 @@ rekapeapp/
 
 ---
 
-**Разработано с ❄️ в ReKape Studios**  
-© 2026 ReKape. Все права защищены.
